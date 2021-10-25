@@ -25,7 +25,9 @@ def Forward_checking(map):
         if exist :
             neighbor.list_colors.remove(map.list_countries[index].color_set)
     
-    print("A=" + map.list_countries[0].color_set + " B=" + map.list_countries[1].color_set + " C=" + map.list_countries[2].color_set)
+    for region in map.list_countries :
+        print(region.name + "=" + region.color_set + " " ,end = '')
+    print()
 
     if Forward_checking(map) == 1 :
         return 1
