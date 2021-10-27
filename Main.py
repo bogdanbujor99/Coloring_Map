@@ -8,12 +8,12 @@ C = Country("C")
 D = Country("D")
 A.set_neighbor([B,C])
 B.set_neighbor([A,C])
-C.set_neighbor([A,B])
-D.set_neighbor([])
-A.list_colors = ["blue","red","yellow"]
-B.list_colors = ["red","blue"]
-C.list_colors = ["red","blue"]
-D.list_colors = ["red"]
+C.set_neighbor([A,B,D])
+D.set_neighbor([C])
+A.list_colors = ["red","blue"]
+B.list_colors = ["red"]
+C.list_colors = ["red","yellow"]
+D.list_colors = ["yellow","red","blue"]
 list_countries = [A,B,C,D]
 map = Map(list_countries)
 if Forward_checking(map) == 0 :

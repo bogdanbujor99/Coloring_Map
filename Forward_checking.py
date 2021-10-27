@@ -29,9 +29,18 @@ def Forward_checking(map):
         print(region.name + "=" + region.color_set + " " ,end = '')
     print()
 
+    for neighbor in map.list_countries[index].list_neighbor:
+        if len(neighbor.list_colors) == 0 and  neighbor.color_set == "" :
+            return 0
+
     if Forward_checking(map) == 1 :
         return 1
-    elif Forward_checking(map_original) == 0 : 
+    else:
+        map_original.list_countries[index].color_choose += 1
+        while map_original.list_countries[index].color_choose <= len(map_original.list_countries[index].list_colors) :
+            if Forward_checking(map_original) == 1 :
+                return 1
+            map_original.list_countries[index].color_choose += 1
         return 0
 
     
